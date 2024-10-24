@@ -1,0 +1,272 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  border: 1px;
+  width: 50vw;
+  margin-top: 50px;
+  margin-left: 50px;
+  box-shadow: 5px 5px 10px lightgrey;
+  padding: 10px;
+  height: fit-content;
+}
+
+/* header */
+.header .avatar {
+  border-radius: 50%;
+  /* vertical-align: middle; */
+  width: 30px;
+  height: 30px;
+  grid-column: 1;
+  grid-row: 1 / span 3;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 30px auto;
+  grid-template-rows: auto auto;
+  align-items: center;
+  gap: 5px;
+  width: auto;
+}
+
+.name {
+  grid-row: 1;
+  grid-column: 2;
+  margin: 0;
+  padding: 0;
+  color: #4468ad;
+  font-family: inherit;
+  font-weight: bold;
+}
+
+.time-earth {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.name-time {
+  display: flex;
+  flex-direction: column;
+  grid-column: 2;
+  grid-row: 1 / 3;
+}
+
+.time {
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  font-family: inherit;
+  color: #65676b;
+}
+
+.header .earth-icon {
+  width: 11px;
+  grid-column: 3;
+  grid-row: 2;
+  align-self: center;
+}
+
+/* content */
+
+.content p {
+  font-family: inherit;
+  color: #050505;
+}
+
+.main-image video {
+  max-width: 100%;
+  max-height: 70%;
+}
+
+/* icon section */
+
+.icon {
+  color: #65676b;
+  display: flex;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.like-icon {
+  width: 30px;
+  transition: transform 0.3s ease;
+}
+
+.like-icon:hover {
+  transform: scale(1.5) rotate(0deg);
+  animation: wiggle 0.5s infinite ease;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: scale(1.5) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.5) rotate(-15deg);
+  }
+  50% {
+    transform: scale(1.5) rotate(15deg);
+  }
+  75% {
+    transform: scale(1.5) rotate(-5deg);
+  }
+}
+
+.comment-icon {
+  width: 30px;
+  transition: transform 0.3s ease;
+}
+
+.comment-icon:hover {
+  transform: scale(1.5) rotate(0deg);
+  animation: wiggle 0.5s infinite ease;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: scale(1.5) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.5) rotate(-15deg);
+  }
+  50% {
+    transform: scale(1.5) rotate(15deg);
+  }
+  75% {
+    transform: scale(1.5) rotate(-5deg);
+  }
+}
+
+.icon img {
+  width: 20px;
+}
+
+.relationship {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: auto;
+}
+
+#popupDialog {
+  display: none;
+  position: fixed;
+  top: 30%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 15px;
+  background-position: center;
+  border: 2px solid white;
+  border-radius: 5px;
+  font-size: 16px;
+  box-shadow: 5px 5px 10px lightgrey;
+  z-index: 1001;
+}
+
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+#popupDialog button {
+  background-color: white;
+  font-size: 14px;
+  color: #65676b;
+  cursor: pointer;
+  margin: 20px;
+  border: 1px solid #65676b;
+}
+
+.share-icon {
+  width: 30px;
+  transition: transform 0.3s ease;
+}
+
+.share-icon:hover {
+  transform: scale(1.5) rotate(0deg);
+  animation: wiggle 0.5s infinite ease;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: scale(1.5) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.5) rotate(-15deg);
+  }
+  50% {
+    transform: scale(1.5) rotate(15deg);
+  }
+  75% {
+    transform: scale(1.5) rotate(-5deg);
+  }
+}
+
+hr {
+  background-color: lightgrey;
+  margin: 0;
+  padding: 0;
+  border: none;
+  height: 1px;
+}
+
+#count-like img {
+  margin-left: 20px;
+  margin-right: 5px;
+}
+
+#count-like {
+  display: flex;
+  align-items: center;
+}
+
+.count-display {
+  margin: 0;
+  padding: 0;
+  display: none;
+}
+
+/* comment box */
+
+#comment-form {
+  position: relative;
+  height: 100px;
+}
+
+#comment-form input {
+  border: 1px solid lightgrey;
+  border-radius: 20px;
+  width: 100%;
+  height: 30px;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+#comment-form button {
+  margin: 5px;
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  background-color: white;
+  border-color: lightgrey;
+  cursor: pointer;
+}
+
+#comment-container {
+  background-color: #ebf5ff;
+  padding: 5px 10px;
+  margin-top: 5px;
+}

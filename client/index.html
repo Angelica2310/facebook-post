@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facebook post</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="./app.js" defer></script>
+  </head>
+  <body>
+    <!-- header -->
+    <section class="header">
+      <img
+        class="avatar"
+        src="./assets/profileID.jpeg"
+        alt="avatar"
+        width="50px"
+      />
+      <p class="name">Angelica</p>
+      <div class="time-earth">
+        <p class="time">Today at 23:10</p>
+        <img
+          src="./assets/earth-icon.jpg"
+          alt="earth icon"
+          class="earth-icon"
+        />
+      </div>
+    </section>
+
+    <!-- content -->
+    <section class="content">
+      <p>"What a cute little bunny!🐰"</p>
+    </section>
+
+    <!-- main image -->
+    <section class="main-image">
+      <video src="./assets/video.mp4" controls autoplay muted></video>
+    </section>
+
+    <!-- icon section -->
+    <section class="icon">
+      <div class="relationship">
+        <img src="./assets/like-icon.jpg " alt="like icon" class="like-icon" />
+        <p>Like</p>
+      </div>
+
+      <div class="relationship">
+        <img
+          src="./assets/comment-icon.jpg"
+          alt="comment icon"
+          class="comment-icon"
+        />
+        <p>Comment</p>
+      </div>
+
+      <div class="relationship">
+        <img
+          src="./assets/share-icon.jpg"
+          alt="share icon"
+          class="share-icon"
+          id="share-icon"
+        />
+        <div id="overlay"></div>
+        <div id="popupDialog">
+          <p>Oops! This post is like a secret recipe—too good to share! 🍰🤫</p>
+          <button id="close-btn">close</button>
+        </div>
+        <p>Share</p>
+      </div>
+    </section>
+
+    <hr />
+
+    <div id="count-like">
+      <img
+        src="./assets/count-like-icon.jpg"
+        alt="count-like-icon"
+        width="20px"
+      />
+      <p class="count-display">0</p>
+    </div>
+
+    <!-- comment box -->
+    <form id="comment-form">
+      <input name="name" placeholder="Your name" id="name" />
+      <input name="message" placeholder="Your comment..." />
+      <button type="submit">Post</button>
+    </form>
+    <hr />
+    <div id="comment-container"></div>
+  </body>
+</html>
