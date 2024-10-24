@@ -17,7 +17,7 @@ app.get("/", function (req, res) {
 const db = new pg.Pool({ connectionString: process.env.DB_CONN_STRING });
 
 // POST request to insert data into Supabase
-app.post("/facebook-post", async function (req, res) {
+app.post("/post-comment", async function (req, res) {
   // get the request body (data from the form)
   const { message, name } = req.body;
   console.log(name, message);
@@ -34,7 +34,7 @@ app.post("/facebook-post", async function (req, res) {
 });
 
 // GET request to fetch data from Supabase
-app.get("/facebook-post", async function (req, res) {
+app.get("/post-comment", async function (req, res) {
   try {
     const result = await db.query("SELECT * FROM facebook_post");
     res.json(result.rows);
@@ -45,7 +45,7 @@ app.get("/facebook-post", async function (req, res) {
 });
 
 // PUT request to update data in Supabase
-app.put("/facebook-post/:id", async function (req, res) {
+app.put("/post-comment/:id", async function (req, res) {
   const { id } = req.params;
   const { message } = req.body;
 

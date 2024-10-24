@@ -3,7 +3,7 @@ const commentForm = document.getElementById("comment-form");
 
 // Function to fetch comments and display them
 async function getComment() {
-  const res = await fetch("http://localhost:3000/facebook-post");
+  const res = await fetch("http://localhost:3000/post-comment");
   const post = await res.json();
 
   // Clear previous comments
@@ -24,6 +24,8 @@ async function getComment() {
     // Create edit button
     const editBtn = document.createElement("button");
     editBtn.textContent = "Edit";
+    editBtn.classList.add("edit-btn");
+
     editBtn.onclick = async function () {
       const newMessage = prompt("Edit your comment:", message);
       if (newMessage) {
@@ -32,7 +34,7 @@ async function getComment() {
 
         // Send a PUT request to update the message in the database
         try {
-          await fetch(`http://localhost:3000/facebook-post/${id}`, {
+          await fetch(`http://localhost:3000/post-comment/${id}`, {
             method: "PUT",
             body: JSON.stringify({ message: newMessage }),
             headers: { "Content-Type": "application/json" },
@@ -46,6 +48,8 @@ async function getComment() {
     // Create delete button
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
+    deleteBtn.classList.add("delete-btn");
+
     deleteBtn.onclick = function () {
       commentContainer.removeChild(commentDiv);
     };
@@ -69,7 +73,7 @@ async function handleSubmitPost(e) {
   const formObj = Object.fromEntries(formData);
   console.log(formObj);
 
-  const response = await fetch("http://localhost:3000/facebook-post", {
+  const response = await fetch("http://localhost:3000/post-comment", {
     method: "POST",
     body: JSON.stringify(formObj),
     headers: { "Content-Type": "application/json" },
