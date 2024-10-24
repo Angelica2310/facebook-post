@@ -40,7 +40,7 @@ app.get("/post-comment", async function (req, res) {
     res.json(result.rows);
   } catch (error) {
     console.log("Error executing query", error);
-    res.status(500).json({ error: "Failed to insert post" });
+    res.status(500).json({ error: "Failed to fetch comments" });
   }
 });
 
