@@ -5,11 +5,9 @@
 body {
   border: 1px;
   width: 50vw;
-  margin-top: 50px;
-  margin-left: 50px;
+  margin: 50px auto;
   box-shadow: 5px 5px 10px lightgrey;
   padding: 10px;
-  height: fit-content;
 }
 
 /* header */
@@ -74,11 +72,12 @@ body {
 .content p {
   font-family: inherit;
   color: #050505;
+  align-items: center;
 }
 
-.main-image video {
+.content video {
   max-width: 100%;
-  max-height: 70%;
+  max-height: 100%;
 }
 
 @media (max-width: 550px) {
