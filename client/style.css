@@ -81,6 +81,12 @@ body {
   max-height: 70%;
 }
 
+@media (max-width: 550px) {
+  .content p {
+    font-size: 13px;
+  }
+}
+
 /* icon section */
 
 .icon {
@@ -88,6 +94,12 @@ body {
   display: flex;
   justify-content: space-around;
   cursor: pointer;
+}
+
+@media (max-width: 550px) {
+  .icon {
+    flex-direction: column;
+  }
 }
 
 .like-icon {
@@ -153,15 +165,27 @@ body {
   width: auto;
 }
 
+@media (max-width: 550px) {
+  .relationship {
+    height: 20px;
+  }
+
+  .relationship p {
+    font-size: 12px;
+  }
+
+  .relationship img {
+    width: 10px;
+  }
+}
+
 #popupDialog {
   display: none;
   position: fixed;
-  top: 30%;
-  left: 30%;
+
   transform: translate(-50%, -50%);
   background-color: white;
   padding: 15px;
-  background-position: center;
   border: 2px solid white;
   border-radius: 5px;
   font-size: 16px;
@@ -185,8 +209,26 @@ body {
   font-size: 14px;
   color: #65676b;
   cursor: pointer;
-  margin: 20px;
   border: 1px solid #65676b;
+}
+
+@media (max-width: 550px) {
+  #popupDialog p {
+    font-size: 12px;
+    margin: 0;
+  }
+
+  #popupDialog {
+    display: none;
+    padding: 10px;
+    top: 50%;
+    left: 50%;
+    position: fixed;
+  }
+
+  #popupDialog button {
+    font-size: 10px;
+  }
 }
 
 .share-icon {
@@ -224,6 +266,7 @@ hr {
 }
 
 #count-like img {
+  width: 20px;
   margin-left: 20px;
   margin-right: 5px;
 }
@@ -239,6 +282,15 @@ hr {
   display: none;
 }
 
+@media (max-width: 550px) {
+  #count-like img {
+    width: 15px;
+  }
+  .count-display {
+    font-size: 12px;
+  }
+}
+
 /* comment box */
 
 .delete-btn {
@@ -247,17 +299,32 @@ hr {
   padding: 1px 3px;
   border-radius: 4px;
   font-size: 10px;
-  /* margin: 5px; */
-  /* position: absolute; */
   right: 10px;
   bottom: 0;
-  background-color: white;
-  border-color: lightgrey;
+  border: none;
   cursor: pointer;
 }
 
 .delete-btn:hover {
-  background-color: #65676b;
+  text-decoration: underline;
+  color: blue;
+}
+
+.edit-btn {
+  color: #65676b;
+  border: 1px solid black;
+  padding: 1px 3px;
+  border-radius: 4px;
+  font-size: 10px;
+  right: 10px;
+  bottom: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  text-decoration: underline;
+  color: blue;
 }
 
 #comment-form {
@@ -288,4 +355,33 @@ hr {
   background-color: #ebf5ff;
   padding: 5px 10px;
   margin-top: 5px;
+}
+
+.comment-div p {
+  margin-bottom: 0;
+  word-break: break-all;
+}
+
+@media (max-width: 550px) {
+  #comment-form input {
+    height: 20px;
+    font-size: 12px;
+  }
+  #comment-form button {
+    font-size: 10px;
+  }
+  #comment-form {
+    height: 80px;
+  }
+  .comment-div p {
+    font-size: 12px;
+  }
+
+  .delete-btn {
+    font-size: 8px;
+  }
+
+  .edit-btn {
+    font-size: 8px;
+  }
 }

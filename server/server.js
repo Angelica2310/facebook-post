@@ -64,6 +64,24 @@ app.put("/post-comment/:id", async function (req, res) {
   }
 });
 
+// DELETE data in Supabase
+app.delete("/post-comment/:id", async function (req, res) {
+  const { id } = req.params;
+
+  try {
+    const result = await db.query("DELETE FROM facebook_post WHERE id =$1", [
+      id,
+    ]);
+    if (result.rowCount === 0) {
+      return res.status(404).json({ error: "Comment not found" });
+    }
+    res.status(200).json({ message: "Comment deleted successfully" });
+  } catch (error) {
+    console.log("Error deleting comment", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 app.listen(3000, function () {
   console.log("App is running on PORT 3000");
 });

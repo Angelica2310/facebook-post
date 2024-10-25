@@ -3,7 +3,9 @@ const commentForm = document.getElementById("comment-form");
 
 // Function to fetch comments and display them
 async function getComment() {
-  const res = await fetch("http://localhost:3000/post-comment");
+  const res = await fetch(
+    "https://facebook-post-server.onrender.com/post-comment"
+  );
   const post = await res.json();
 
   // Clear previous comments
@@ -15,11 +17,12 @@ async function getComment() {
     const id = post[i].id;
 
     const commentDiv = document.createElement("div"); // Create container for each comment
+    commentDiv.classList.add("comment-div");
 
     const p = document.createElement("p");
     p.textContent = `${name}: ${message}`;
 
-    commentContainer.appendChild(p);
+    commentDiv.appendChild(p);
 
     // Create edit button
     const editBtn = document.createElement("button");
@@ -34,11 +37,14 @@ async function getComment() {
 
         // Send a PUT request to update the message in the database
         try {
-          await fetch(`http://localhost:3000/post-comment/${id}`, {
-            method: "PUT",
-            body: JSON.stringify({ message: newMessage }),
-            headers: { "Content-Type": "application/json" },
-          });
+          await fetch(
+            `https://facebook-post-server.onrender.com/post-comment/${id}`,
+            {
+              method: "PUT",
+              body: JSON.stringify({ message: newMessage }),
+              headers: { "Content-Type": "application/json" },
+            }
+          );
         } catch (error) {
           console.log("Error executing query", error);
         }
@@ -50,12 +56,25 @@ async function getComment() {
     deleteBtn.textContent = "Delete";
     deleteBtn.classList.add("delete-btn");
 
-    deleteBtn.onclick = function () {
-      commentContainer.removeChild(commentDiv);
+    deleteBtn.onclick = async function () {
+      // Function to send DELETE request to server
+      try {
+        console.log(`Deleting comment with ID: ${id}`);
+        await fetch(
+          `https://facebook-post-server.onrender.com/post-comment/${id}`,
+          {
+            method: "DELETE",
+          }
+        );
+        // Remove comment
+        commentContainer.removeChild(commentDiv);
+      } catch (error) {
+        console.log("Error deleting comment", error);
+      }
     };
 
     // Append comment and button to comment container
-    commentDiv.appendChild(p);
+
     commentDiv.appendChild(editBtn);
     commentDiv.appendChild(deleteBtn);
     commentContainer.appendChild(commentDiv);
@@ -73,11 +92,14 @@ async function handleSubmitPost(e) {
   const formObj = Object.fromEntries(formData);
   console.log(formObj);
 
-  const response = await fetch("http://localhost:3000/post-comment", {
-    method: "POST",
-    body: JSON.stringify(formObj),
-    headers: { "Content-Type": "application/json" },
-  });
+  const response = await fetch(
+    "https://facebook-post-server.onrender.com/post-comment",
+    {
+      method: "POST",
+      body: JSON.stringify(formObj),
+      headers: { "Content-Type": "application/json" },
+    }
+  );
 
   const data = await response.json();
   console.log(data);
