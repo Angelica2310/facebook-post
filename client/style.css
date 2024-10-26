@@ -4,7 +4,7 @@
 
 body {
   border: 1px;
-  width: 50vw;
+  width: 70vw;
   margin: 50px auto;
   box-shadow: 5px 5px 10px lightgrey;
   padding: 10px;
@@ -181,7 +181,8 @@ body {
 #popupDialog {
   display: none;
   position: fixed;
-
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
   padding: 15px;
